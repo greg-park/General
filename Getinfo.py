@@ -28,9 +28,9 @@ def expand_data(_redfishobj, expand_url="/redfish/v1/"):
     response = _redfishobj.get(expand_url)
     exp_response = _redfishobj.get(expand_url+'?$expand=.')
     sys.stdout.write('Standard response:\n')
-    sys.stdout.write('\t'+str(response.dict)+'\n')
+    print(json.dumps(response.dict, indent=4, sort_keys=True))
     sys.stdout.write('Expanded response:\n')
-    sys.stdout.write('\t'+str(exp_response.dict)+'\n')
+    print(json.dumps(exp_response.dict, indent=4, sort_keys=True))
 
 if __name__ == "__main__":
     # When running on the server locally use the following commented values

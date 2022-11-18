@@ -1,17 +1,17 @@
 ####################################################################
-#Firmare inventory information
+#
 ####################################################################
 
 <#
 .Synopsis
-    This Script gets the Inventory Informations.
+    This Script gets the User  Information from iLO.
 .DESCRIPTION
-    This Script gets Firmware, Software, Device and PCIDevice Inventory information for iLO5.
+    This Script gets user Inventory information for iLO5.
 	
 	The cmdlets used from HPEiLOCmdlets module in the script are as stated below:
 	Enable-HPEiLOLog, Connect-HPEiLO, Get-HPEiLOFirmwareInventory, Get-HPEiLOServerSoftwareInventory, Get-HPEiLODeviceInventory, Get-HPEiLOPCIDeviceInventory, Disconnect-HPEiLO, Disable-HPEiLOLog
 .EXAMPLE
-    PS C:\HPEiLOCmdlets\Samples\> .\InventoryInformation.ps1
+    PS C:\HPEiLOCmdlets\Samples\> .\GetUsers.ps1
 	
 	This script does not take any parameter.
 	
@@ -99,7 +99,7 @@ try {
 
     $connection = Connect-HPEiLO -IP $inputcsv.IP -Username $inputcsv.Username -Password $inputcsv.Password -DisableCertificateAuthentication
 	$Error.Clear()
-	
+
 	if($connection -eq $null) {
         Write-Host "`nConnection could not be established to any target iLO.`n" -ForegroundColor Red
         $inputcsv.IP | fl
